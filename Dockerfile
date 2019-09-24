@@ -58,7 +58,7 @@ RUN mkdir /certs /certs/client && chmod 1777 /certs /certs/client
 # (doing both /certs and /certs/client so that if Docker does a "copy-up" into a volume defined on /certs/client, it will "do the right thing" by default in a way that still works for rootless users)
 
 #COPY docker-entrypoint.sh /docker-entrypoint.sh
-ENV DOCKER_HOST='tcp://docker:2375'
+ENV DOCKER_HOST='tcp://docker:2376'
 
 RUN apk add bash
 #ENTRYPOINT "bash /docker-entrypoint.sh"
