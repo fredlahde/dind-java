@@ -2,6 +2,9 @@ image: docker:latest
 services:
   - docker:dind
 
+stages:
+  - build-docker
+
 variables:
   CONTAINER_IMAGE: registry.worldiety.net/flahde/dind-java:${CI_COMMIT_SHORT_SHA}
 
