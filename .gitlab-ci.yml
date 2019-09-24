@@ -4,6 +4,7 @@ services:
 
 stages:
   - build-docker
+  - test-ci
 
 variables:
   CONTAINER_IMAGE: registry.worldiety.net/flahde/dind-java:${CI_COMMIT_SHORT_SHA}
@@ -19,3 +20,12 @@ build-docker:
     - docker tag ${CONTAINER_IMAGE} ${CONTAINER_IMAGE}
     - docker tag ${CONTAINER_IMAGE} registry.worldiety.net/flahde/dind-java:latest
     - docker push ${CONTAINER_IMAGE}
+
+build-docker:
+  image: ${CONTAINER_IMAGE}
+  stage: test-docker
+  tags:
+    - docker-build-runner
+  script:
+    - java -version
+    - docker run --rm hello-world
