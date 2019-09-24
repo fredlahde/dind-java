@@ -23,7 +23,7 @@ build-docker:
 
 build-docker:
   image: ${CONTAINER_IMAGE}
-  stage: test-docker
+  stage: test-ci
   tags:
     - docker-build-runner
   script:
