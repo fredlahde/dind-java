@@ -21,7 +21,7 @@ build-docker:
     - docker tag ${CONTAINER_IMAGE} registry.worldiety.net/flahde/dind-java:latest
     - docker push ${CONTAINER_IMAGE}
 
-build-docker:
+test-ci:
   image: ${CONTAINER_IMAGE}
   stage: test-ci
   tags:
